@@ -83,6 +83,7 @@ x <- sample_normal_w_missing(1000, missing_frac=0.1)
 
 x_non_missing <- rm_na(x)
 length(x_non_missing)
+x_non_missing
 ```
 
 ## 4. Row-wise Matrix Computations
