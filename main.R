@@ -17,7 +17,7 @@
 #' less_than_zero(c(-1,0,1,2,3,4))
 #' [1] TRUE FALSE FALSE FALSE FALSE FALSE
 less_than_zero <- function(x){
-  return(x < 0)  # Return TRUE for values less than 0, otherwise FALSE
+  return(x < 0)  # TRUE for values less than 0, else FALSE
 }
 
 
@@ -44,7 +44,7 @@ less_than_zero <- function(x){
 #' [2,]  TRUE FALSE FALSE
 #' [3,] FALSE FALSE FALSE
 is_between <- function(x, a, b) {
-  return(x > a & x < b)  # Return TRUE if x is between a and b
+  return(x > a & x < b)  # TRUE if x is between a & b
 }
 
 
@@ -62,7 +62,7 @@ is_between <- function(x, a, b) {
 #' rm_na(x)
 #' [1] 1 2 3
 rm_na <- function(x) {
-  return(as.vector(na.omit(x)))  # na.omit() to remove NAs, and as.vector() to remove attributes
+  return(as.vector(na.omit(x)))  # remove NAs, and as.vector() to remove attributes
 }
 x <- c(1,2,NA,3)
 rm_na(x)
@@ -82,7 +82,7 @@ rm_na(x)
 #' row_medians(m)
 #' [1] 2 5 8
 row_medians <- function(x) {
-  return(apply(x, 1, median, na.rm = TRUE))  # Apply median function to each row
+  return(apply(x, 1, median, na.rm = TRUE))  # median function to each row
 }
 
 
@@ -108,7 +108,7 @@ row_medians <- function(x) {
 #' summarize_rows(m, mean)
 #' [1] 2 5 8
 summarize_rows <- function(x, fn, na.rm=FALSE) {
-  return(apply(x, 1, fn, na.rm = na.rm))  # Apply the function `fn` to each row
+  return(apply(x, 1, fn, na.rm = na.rm))  # function `fn` to each row
 }
 
 
@@ -134,9 +134,9 @@ summarize_rows <- function(x, fn, na.rm=FALSE) {
 #' @export
 #'
 #' @examples
-#' m <- matrix(1:9, nrow=3, byrow=T)
-#' summarize_matrix(m)
-#'   mean stdev median min max num_lt_0 num_btw_1_and_5 num_na
+# m <- matrix(1:9, nrow=3, byrow=T)
+# summarize_matrix(m)
+#   mean stdev median min max num_lt_0 num_btw_1_and_5 num_na
 #' 1    2     1      2   1   3        0               3      0
 #' 2    5     1      5   4   6        0               1      0
 #' 3    8     1      8   7   9        0               0      0
