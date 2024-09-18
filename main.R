@@ -148,7 +148,12 @@ summarize_matrix <- function(x, na.rm=FALSE) {
   max_vals <- apply(x, 1, max, na.rm = na.rm)
   num_lt_0 <- apply(x, 1, function(row) sum(row < 0, na.rm = na.rm))
   num_btw_1_and_5 <- apply(x, 1, function(row) sum(row > 1 & row < 5, na.rm = na.rm))
-  num_na <- apply(x, 1, function(row) sum(is.na(row)))
+#num_na <- apply(x, 1, function(row) sum(is.na(row)))
+  num_na <- if (na.rm) {
+    rep(0, nrow(x))  # 0 for each row if na.rm = TRUE
+  } else {
+    apply(x, 1, function(row) sum(is.na(row)))  # actual number of NAs if na.rm = FALSE
+  }
   
   # Return as a data frame
   return(data.frame(
